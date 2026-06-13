@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "../utils/cn";
 import { Menu, X } from "lucide-react";
 
@@ -82,32 +82,35 @@ export function Navbar() {
       </div>
 
       {/* Mobile Nav */}
-      {mobileMenuOpen && (
-        <motion.div
-          className="absolute top-full left-0 w-full bg-forma-bg shadow-md md:hidden flex flex-col items-center py-8 gap-6"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-heading tracking-widest uppercase text-forma-text hover:text-forma-brass transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="mt-4 px-8 py-3 border border-forma-text text-sm uppercase tracking-wider hover:bg-forma-text hover:text-forma-bg transition-colors duration-300"
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            className="absolute top-full left-0 w-full bg-forma-bg shadow-md md:hidden flex flex-col items-center py-8 gap-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
           >
-            Visit Showroom
-          </a>
-        </motion.div>
-      )}
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-lg font-heading tracking-widest uppercase text-forma-text hover:text-forma-brass transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-4 px-8 py-3 border border-forma-text text-sm uppercase tracking-wider hover:bg-forma-text hover:text-forma-bg transition-colors duration-300"
+            >
+              Visit Showroom
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

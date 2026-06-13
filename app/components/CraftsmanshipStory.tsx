@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { blurDataURL } from "../utils/blur";
 import { TreePine, Hammer, Truck } from "lucide-react";
 
 export function CraftsmanshipStory() {
@@ -69,6 +70,8 @@ export function CraftsmanshipStory() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
                 />
               </motion.div>
               

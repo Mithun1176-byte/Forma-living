@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import Image from "next/image";
+import { blurDataURL } from "../utils/blur";
 import { useCartStore } from "../store/cartStore";
 
 export function ContactForm() {
@@ -62,6 +63,8 @@ export function ContactForm() {
             alt="Showroom interior"
             fill
             className="object-cover rounded-sm"
+            placeholder="blur"
+            blurDataURL={blurDataURL}
           />
         </motion.div>
 

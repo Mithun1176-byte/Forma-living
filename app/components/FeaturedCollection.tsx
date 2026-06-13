@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { toast } from "sonner";
 import { products, type Product } from "../data/products";
+import { blurDataURL } from "../utils/blur";
 import { useCartStore } from "../store/cartStore";
 
 export function FeaturedCollection() {
@@ -64,6 +65,8 @@ export function FeaturedCollection() {
                   fill
                   className="object-cover transition-opacity duration-700 group-hover:opacity-0"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
                 />
                 <Image
                   src={product.secondaryImage}
@@ -71,6 +74,8 @@ export function FeaturedCollection() {
                   fill
                   className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
               </div>
@@ -119,6 +124,8 @@ export function FeaturedCollection() {
                   alt={selectedProduct.name}
                   fill
                   className="object-cover"
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
                 />
               </div>
               

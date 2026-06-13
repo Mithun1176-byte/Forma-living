@@ -7,11 +7,13 @@ import { Testimonials } from "./components/Testimonials";
 import { ShowroomLocator } from "./components/ShowroomLocator";
 import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
+import { Preloader } from "./components/Preloader";
 import { Toaster } from "sonner";
 
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden">
+      <Preloader />
       <Toaster position="bottom-right" toastOptions={{
         className: 'bg-black/80 backdrop-blur-md text-forma-text border border-forma-text/20 rounded-none uppercase tracking-widest text-xs font-bold',
         descriptionClassName: 'text-forma-text/70 tracking-normal font-normal mt-1'

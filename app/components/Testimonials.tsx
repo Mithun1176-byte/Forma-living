@@ -8,6 +8,26 @@ export function Testimonials() {
   return (
     <section className="py-24 bg-black/20 backdrop-blur-sm">
       <div className="container mx-auto px-6 md:px-12">
+        <div className="mb-16 text-center">
+          <motion.h2
+            className="text-4xl md:text-5xl font-heading mb-4 text-forma-text"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            Client Stories
+          </motion.h2>
+          <motion.p
+            className="text-forma-text/70 max-w-xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Hear from the people who live with our pieces every day.
+          </motion.p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
           {testimonials.map((testimonial, index) => (
             <motion.div
